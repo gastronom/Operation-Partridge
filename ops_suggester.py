@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # Operation Suggester
 # 2015may19 ver 1.0
-# 2015may26 ver 1.1 added mkdir function if accepted and generation of template readme in each operation.
+# 2015may26 ver 1.1
+# added mkdir function if accepted and generation of template readme in each operation.
 
-#original: get_ops.py
-#additional: strategy_template.py 
+# original: get_ops.py
+# additional: strategy_template.py
 # modification for python3: ops_suggester.py #this file
 
 import subprocess
@@ -13,15 +14,17 @@ import datetime
 ls = " "
 ln = "\n"
 lt = "\t"
-DONE = "*DONE*" # markar to distinguish used operation
+DONE = "*DONE*"  # markar to distinguish used operation
 mkdir = "/bin/mkdir "
 template = "strategy"
-longbar="-------------------------"
-#functions
+longbar = "-------------------------"
+# functions
 # writing a file
+
+
 def writefile(listname, filename):
-    fw = open(filename,'w')
-    if len(listname)==0:
+    fw = open(filename, 'w')
+    if len(listname) == 0:
         print("nope")
     else:
         for op in listname:
@@ -29,24 +32,24 @@ def writefile(listname, filename):
     fw.close
 
 
-def output_random_op(inputfile,outputfile):
+def output_random_op(inputfile, outputfile):
 
-    ops = [] #list of operations
+    ops = []  # list of operations
     # reading a file
-    fr = open(inputfile,'r') #filename 2bchanged
+    fr = open(inputfile, 'r')  # filename 2bchanged
     data = fr.read()
     data = data.split('\n')
     for line in data:
-        if len(line) >= 1: # avoid null string in the end of file
-            ops.append(line) 
+        if len(line) >= 1:  # avoid null string in the end of file
+            ops.append(line)
     fr.close
 
     print(ops)
-    
-    # distinguishing used operation
-    undnopidcs = [] #list of index for operations not used ever
 
-    idx=0
+    # distinguishing used operation
+    undnopidcs = []  # list of index for operations not used ever
+
+    idx = 0
     for op in ops:
         if not DONE in op: #if DONE marker is not labeled
             undnopidcs.append(idx) #remember its index
