@@ -142,6 +142,6 @@ print "Operation Suggeter 1.1"
 print "---------------------------"
 dir_now = subprocess.check_output("/bin/pwd ",shell=True)
 print "directory called: "+dir_now
-opr = output_random_op("./partridge/operations.txt","./partridge/_operations_test.txt")
+opr = output_random_op("./partridge/operations.txt","./partridge/operations.txt")
 dirname=makedir(opr)
 set_templatefile("./",dirname)
